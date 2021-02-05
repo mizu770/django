@@ -13,3 +13,4 @@ media
 .DS_Store
 settings.json
 myvenv
+secret_keys.py

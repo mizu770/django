@@ -38,4 +38,4 @@ register
 업데이트 내용
 - aws
 
-- Heroku(git 업로드 중 에러 발생)
+- Heroku
