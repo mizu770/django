@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
 import os
 import dj_database_url
 import sys
@@ -30,7 +29,7 @@ SECRET_KEY = 'n9kd2&g834#ehrlwkz!v)itgpac#+6qy^rzv3+)cyc^#4v$6hj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
 
 # Application definition
 
@@ -150,15 +149,15 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl' : 'max-age=86400',
+    'CacheControl':'max-age=86400',
 }
-
 AWS_DEFAULT_ACL = 'public-read'
-
 AWS_LOCATION = 'static'
 
 STATIC_URL = 'http://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 DEFAULT_FILE_STORAGE = 'config.s3media.MediaStorage'
